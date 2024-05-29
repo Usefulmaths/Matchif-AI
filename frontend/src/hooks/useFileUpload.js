@@ -7,19 +7,21 @@ const useFileUpload = () => {
   const [fileName, setFileName] = useState("");
   const [uploadProgress, setUploadProgress] = useState(0);
 
-
   const handleDrop = useCallback((acceptedFiles) => {
     const file = acceptedFiles[0];
     setFileName(file.name);
 
-      setUploadStatus("uploading");
-      setUploadProgress(0);
+    setUploadStatus("uploading");
+    setUploadProgress(0);
 
-      const formData = new FormData();
-      formData.append("file", file);
+    const formData = new FormData();
+    formData.append("file", file);
 
-      axios
-        .post("http://127.0.0.1:8000/upload_and_create_profile", formData, {
+    axios
+      .post(
+        `/upload_and_create_profile`,
+        formData,
+        {
           headers: {
             "Content-Type": "multipart/form-data",
           },
@@ -28,14 +30,15 @@ const useFileUpload = () => {
               Math.round((progressEvent.loaded * 100) / progressEvent.total)
             );
           },
-        })
-        .then((response) => {
-          setUploadStatus("success");
-          setJobDescriptions(response.data.job_postings);
-        })
-        .catch(() => {
-          setUploadStatus("error");
-        });
+        }
+      )
+      .then((response) => {
+        setUploadStatus("success");
+        setJobDescriptions(response.data.job_postings);
+      })
+      .catch(() => {
+        setUploadStatus("error");
+      });
   }, []);
 
   return {
