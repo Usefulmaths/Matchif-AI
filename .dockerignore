@@ -1,0 +1,82 @@
+# Ignore node_modules and Python virtual environments
+node_modules
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+*.egg
+*.egg-info
+.eggs
+env/
+venv/
+ENV/
+venv.bak/
+.venv/
+.venv.bak/
+
+# Ignore data
+data/
+uploads/
+
+# Ignore logs and temporary files
+*.log
+*.tmp
+*.swp
+*.swo
+*~
+*#
+.*#
+
+# Ignore build artifacts
+build/
+dist/
+*.o
+*.out
+*.class
+
+# Ignore system files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.iml
+
+# Ignore local environment configuration
+.env
+.env.local
+.env.development
+.env.test
+.env.production
+
+# Ignore frontend dependencies and build artifacts
+frontend/node_modules
+frontend/build
+
+# Ignore backend dependencies and build artifacts
+server/__pycache__
+server/*.pyc
+server/*.pyo
+server/*.pyd
+server/*.egg
+server/*.egg-info
+server/.eggs
+server/env/
+server/venv/
+server/ENV/
+server/venv.bak/
+server/.venv/
+server/.venv.bak/
+server/logs/
+server/tmp/
+server/swp/
+server/swo/
+
+# Ignore coverage reports
+coverage/
+*.lcov
+
+# Ignore Docker-related files
+Dockerfile.*
+docker-compose.yml
+docker-compose*.yml
+
