@@ -1,0 +1,4 @@
+encryptionsalt: v1:oROgcz9WTnQ=:v1:lCRtElsz9lGwLbhZ:3Ts3r9PJJkpvnzt/KTxej67+piFJEw==
+config:
+  gcp:project: matchif-ai
+  gcp:region: us-central1
