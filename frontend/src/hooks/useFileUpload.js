@@ -18,20 +18,16 @@ const useFileUpload = () => {
     formData.append("file", file);
 
     axios
-      .post(
-        `/upload_and_create_profile`,
-        formData,
-        {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
-          onUploadProgress: (progressEvent) => {
-            setUploadProgress(
-              Math.round((progressEvent.loaded * 100) / progressEvent.total)
-            );
-          },
-        }
-      )
+      .post(`/api/job_postings/upload_and_create_profile`, formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+        onUploadProgress: (progressEvent) => {
+          setUploadProgress(
+            Math.round((progressEvent.loaded * 100) / progressEvent.total)
+          );
+        },
+      })
       .then((response) => {
         setUploadStatus("success");
         setJobDescriptions(response.data.job_postings);
