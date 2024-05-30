@@ -5,6 +5,10 @@ Matchif-AI is a web application designed to assist users in finding job descript
 
 Note: This is a demo / proof-of-concept; the job descriptions are out-of-date. So, if you apply and don’t hear back, it’s not you—it’s them ;P
 
+## Demo
+
+![Matchif-AI Demo](./Matchif-AI%20Demo.gif)
+
 ## Deployed Application
 If you prefer not to run the application locally, you can access the deployed version on Google Cloud Run:
 
