@@ -25,8 +25,8 @@ class UserService:
         try:
             user_object = {"description": user_description}
             collection = self.client.collections.get("UserProfile")
-            result = collection.data.insert(user_object)
-            return result.uuids[0]
+            uuid = collection.data.insert(user_object)
+            return uuid
 
         except Exception as e:
             raise Exception(f"Error adding user profile: {e}")
