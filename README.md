@@ -44,7 +44,7 @@ Follow these steps to set up the Matchif-AI application locally.
 
 ### Prerequisites
 - Docker and Docker Compose installed
-- Download the LinkedIn Job Postings dataset and place the `postings.csv` inside the `data` directory in the root of the project. [LinkedIn Job Postings Dataset](https://www.kaggle.com/datasets/arshkon/linkedin-job-postings)
+- Download the LinkedIn Job Postings dataset and place the `postings.csv` inside the `data` directory in the `backend` directory. [LinkedIn Job Postings Dataset](https://www.kaggle.com/datasets/arshkon/linkedin-job-postings)
 
 ### Step-by-Step Instructions
 #### 1. Set Up Environmental Variables
