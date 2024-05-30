@@ -58,6 +58,7 @@ def get_job_postings(
             "currency": obj.properties.get("currency", "N/A"),
             "work_type": obj.properties.get("formatted_work_type", "N/A"),
             "experience_level": obj.properties.get("formatted_experience_level", "N/A"),
+            "application_url": obj.properties.get("application_url", "N/A"),
             "description": obj.generated,
             
         }

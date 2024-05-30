@@ -110,23 +110,3 @@ class JobService:
         except Exception as e:
             logging.error(f"Error fetching job postings: {e}")
             return []
-
-# Main function to run the job service
-def main():
-    client = WeaviateClient().get_client()
-
-    job_service = JobService(client)
-    
-    # Create JobPosting collection if it doesn't exist
-    job_service.create_job_posting_collection()
-
-    # Load the dataset
-    df = pd.read_csv('./data/postings.csv')
-    df = df[0:10]
-
-    # Preprocess the dataframe (assuming preprocessing code is already executed and df is cleaned)
-    job_service.populate_job_posting_collection(df)
-
-
-if __name__ == "__main__":
-    main()

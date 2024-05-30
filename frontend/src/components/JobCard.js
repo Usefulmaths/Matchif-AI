@@ -42,6 +42,7 @@ const JobCard = ({
   currency,
   work_type,
   experience_level,
+  application_url,
 }) => {
   const formatDescription = (description) => {
     return description.replace(/\n/g, '<br />');
@@ -93,7 +94,7 @@ const JobCard = ({
         />
       </div>
       <ApplyButtonContainer>
-        <ApplyButton>Apply Now</ApplyButton>
+        <ApplyButton onClick={() => window.open(application_url)}>Apply Now</ApplyButton>
       </ApplyButtonContainer>
     </StyledJobCard>
   );

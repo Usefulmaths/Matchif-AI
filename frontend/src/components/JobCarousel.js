@@ -8,11 +8,7 @@ import { StyledSwiper } from '../styles/JobCarousel.styles.js';
 
 const JobCarousel = ({ jobDescriptions }) => {
   return (
-    <StyledSwiper
-      navigation={true}
-      modules={[Navigation]}
-      spaceBetween={20}
-    >
+    <StyledSwiper navigation={true} modules={[Navigation]} spaceBetween={20}>
       {jobDescriptions.map((job, index) => (
         <SwiperSlide
           key={index}
@@ -34,6 +30,7 @@ const JobCarousel = ({ jobDescriptions }) => {
             currency={job.currency}
             work_type={job.work_type}
             experience_level={job.experience_level}
+            application_url={job.application_url}
           />
         </SwiperSlide>
       ))}
