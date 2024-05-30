@@ -12,7 +12,7 @@ The infrastructure for this deployment is managed using Infrastructure as Code (
 
 ## Workflow
 ### Preliminary Exploratory Data Analysis
-Initial exploratory data analysis of the job listing dataset can be found in `backend/notebook`, which gives insight into the structure and contents of the data.
+Initial exploratory data analysis of the job listing dataset can be found in `backend/notebook`, which gives insight into the structure and contents of the data. The dataset can be found here [LinkedIn Job Postings Dataset](https://www.kaggle.com/datasets/arshkon/linkedin-job-postings) 
 
 ### Data Preprocessing
 1. **Run the Preprocessing Script**: This script performs the following tasks:
