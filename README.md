@@ -3,6 +3,8 @@
 ## Overview
 Matchif-AI is a web application designed to assist users in finding job descriptions that closely match their resumes. The application allows users to upload their resume in PDF format, which is then processed and embedded into vector representations. These resume vectors are compared against a pre-existing vector database of job descriptions to find the best matches.
 
+Note: This is a demo / proof-of-concept; the job descriptions are out-of-date. So, if you apply and don’t hear back, it’s not you—it’s them ;P
+
 ## Deployed Application
 If you prefer not to run the application locally, you can access the deployed version on Google Cloud Run:
 
@@ -15,17 +17,19 @@ The infrastructure for this deployment is managed using Infrastructure as Code (
 Initial exploratory data analysis of the job listing dataset can be found in `backend/notebook`, which gives insight into the structure and contents of the data. The dataset can be found here [LinkedIn Job Postings Dataset](https://www.kaggle.com/datasets/arshkon/linkedin-job-postings) 
 
 ### Data Preprocessing
-1. **Run the Preprocessing Script**: This script performs the following tasks:
+1. Preprocess the job listing data to:
    - Removes unnecessary columns.
    - Handles missing data via removal or imputation.
    - Removes duplicates.
-   - Removes HTML tags.
-   - Normalises spacing and newlines.
-2. **Vectorise Data**: After preprocessing, the rows of data are vectorised and pushed to Weaviate collections called `JobListing`.
+   - Removes HTML tags in descriptions.
+   - Normalises spacing and newlines in description.
+2. Create a `JobPosting` collection on Weaviate to store embedding vectors of the job descriptions.
+3. Vectorise the data and store in the `JobPosting` collection using Weaviate. These will be used for generative search later.
 
 ### Application Deployment
-1. **Populate Weaviate Collection**: Ensure the Weaviate collection is populated with job listing data.
-2. **Run the Application**: Follow the setup instructions provided in the "Local Setup" section to build and run the application using Docker Compose.
+Once the Weaviate `JobPosting` collection is populated, the application is ready to be served.
+
+**Run the Application**: Follow the setup instructions provided in the "Local Setup" section to build and run the application using Docker Compose.
 
 ### How it Works
 1. **Resume Processing**:
