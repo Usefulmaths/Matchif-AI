@@ -12,7 +12,7 @@ The infrastructure for this deployment is managed using Infrastructure as Code (
 
 ## Workflow
 ### Preliminary Exploratory Data Analysis
-Explore the job listing dataset found in the `notebooks` directory to gain insights into its structure and contents.
+Explore the job listing dataset found in the `backend/notebooks` directory to gain insights into its structure and contents.
 
 ### Data Preprocessing
 1. **Run the Preprocessing Script**: This script performs the following tasks:
@@ -88,3 +88,8 @@ This command will:
 
 #### 4. Access the Application
 Once the Docker containers are up and running, you can access the web application on `http://localhost:3000`.
+
+## Potential Next Steps
+- Integrate live scraping of job descriptions instead of using a static dataset.
+- Implement a more complex vector search that can take into account users' preferences in skills, industries, etc.
+- Enhance the user interface to provide a more interactive and intuitive experience.
