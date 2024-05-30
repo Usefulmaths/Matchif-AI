@@ -9,7 +9,7 @@ Note: This is a demo / proof-of-concept; the job descriptions are out-of-date. S
 
 ## Deployed Application
 If you prefer not to run the application locally, you can access the deployed version on Google Cloud Run:
-[Matchif-AI - Live Demo](https://matchif-ai-cloudrun-service-bf8a668-xkrlu6mwma-uc.a.run.app)
+[Matchif-AI - Live Demo](https://matchif-ai-cloudrun-service-416c51e-xkrlu6mwma-uc.a.run.app)
 The infrastructure for this deployment is managed using Infrastructure as Code (IaC) with Pulumi.
 
 ## Workflow
