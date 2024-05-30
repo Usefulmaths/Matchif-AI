@@ -33,8 +33,8 @@ Once the Weaviate `JobPosting` collection is populated, the application is ready
 
 ### How it Works
 1. **Resume Processing**:
-   - When a user uploads their resume, the text is extracted and preprocessed.
-   - This preprocessed text is then vectorised and added to a Weaviate collection.
+   - When a user uploads their resume, the text is extracted.
+   - This text is then vectorised and added to a Weaviate collection `UserProfile`.
 2. **Finding Job Matches**:
    - Using the UUID of the user's resume, the corresponding vector is extracted from Weaviate.
    - Generative Search using Weaviate is then performed on the `JobPosting` collection with the user's resume vector to find job postings that are similar to the user's resume vector.
