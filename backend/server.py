@@ -1,7 +1,8 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
 from src.config.config import config
-from src.routes import job_postings, static_files
+from src.routes import job_postings
 
 app = FastAPI()
 
@@ -14,7 +15,9 @@ app.add_middleware(
 )
 
 app.include_router(job_postings.router, prefix="/api/job_postings")
-app.include_router(static_files.router, prefix="/static")
+
+# Mount the static files at the root URL
+app.mount("/", StaticFiles(directory="/app/frontend/build", html=True), name="static")
 
 if __name__ == "__main__":
     import uvicorn
