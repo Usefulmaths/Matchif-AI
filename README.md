@@ -86,12 +86,8 @@ Navigate back to the root directory of the project and run the following command
 docker-compose up --build
 ```
 
-This command will:
-- Build the frontend and backend Docker images.
-- Start the containers and set up the environment to run the application.
-
 #### 4. Access the Application
-Once the Docker containers are up and running, you can access the web application on `http://localhost:3000`.
+Once the Docker container is up and running, you can access the web application on `http://localhost:3000`.
 
 ## Potential Next Steps
 - Integrate live scraping of job descriptions instead of using a static dataset.
