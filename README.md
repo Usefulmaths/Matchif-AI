@@ -12,7 +12,7 @@ The infrastructure for this deployment is managed using Infrastructure as Code (
 
 ## Workflow
 ### Preliminary Exploratory Data Analysis
-Explore the job listing dataset found in the `backend/notebooks` directory to gain insights into its structure and contents.
+Initial exploratory data analysis of the job listing dataset can be found in `backend/notebook`, which gives insight into the structure and contents of the data.
 
 ### Data Preprocessing
 1. **Run the Preprocessing Script**: This script performs the following tasks:
