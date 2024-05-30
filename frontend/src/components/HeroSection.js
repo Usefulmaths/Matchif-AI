@@ -15,7 +15,7 @@ const HeroSection = () => (
     <Circle />
     <Circle />
     <Circle />
-    <Title>Explore Opportunities</Title>
+    <Title>Matchif-AI</Title>
     <SubTitle>Discover jobs the smart way</SubTitle>
     <WaveDivider>
       <Wavify

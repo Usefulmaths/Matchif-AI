@@ -1,13 +1,23 @@
-from weaviate.classes.query import MetadataQuery
-from typing import List
+import logging
 
+import pandas as pd
+from weaviate.classes.query import MetadataQuery
+from weaviate import Client
+from weaviate.exceptions import UnexpectedStatusCodeException
+from typing import List
+import weaviate.classes as wvc
+
+from src.clients.weaviate_client import WeaviateClient
+
+# Configure logging
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
 class JobService:
     """
     Service class to handle job postings related operations.
     """
 
-    def __init__(self, client):
+    def __init__(self, client: Client):
         """
         Initializes the JobService with a Weaviate client.
 
@@ -15,6 +25,42 @@ class JobService:
             client: An instance of a Weaviate client.
         """
         self.client = client
+
+    def create_job_posting_collection(self):
+        """
+        Creates the JobPosting collection if it doesn't exist.
+        """
+        try:
+            self.client.collections.create(
+                name='JobPosting',
+                vectorizer_config=wvc.config.Configure.Vectorizer.text2vec_openai(), 
+                generative_config=wvc.config.Configure.Generative.openai() 
+            )
+            logging.info("Created JobPosting collection.")
+        except UnexpectedStatusCodeException:
+            logging.error("JobPosting collection already exists. Please remove it before creating a new one.")
+            raise
+        except Exception as e:
+            logging.error(f"Error creating JobPosting collection: {e}")
+            raise
+
+    def populate_job_posting_collection(self, df: pd.DataFrame):
+        """
+        Populates the JobPosting collection with job listings.
+
+        Args:
+            df (pd.DataFrame): DataFrame containing job postings data.
+        """
+        job_listing_objs = df.to_dict(orient='records')
+
+        try:
+            job_postings = self.client.collections.get("JobPosting")
+            job_postings.data.insert_many(job_listing_objs)
+            logging.info(f"Successfully inserted {len(job_listing_objs)} job listings.")
+        except UnexpectedStatusCodeException as e:
+            logging.error(f"Error inserting job postings: {e}")
+        except Exception as e:
+            logging.error(f"Unexpected error: {e}")
 
     def get_job_postings_near_vector(self, vector: List[float], limit: int = 10):
         """
@@ -27,7 +73,6 @@ class JobService:
         Returns:
             list: A list of job posting objects.
         """
-
         if limit == 0:
             return []
 
@@ -62,7 +107,26 @@ class JobService:
                 return_metadata=MetadataQuery(distance=True),
             )
             return response.objects
-
         except Exception as e:
-            print(f"Error fetching job postings: {e}")
+            logging.error(f"Error fetching job postings: {e}")
             return []
+
+# Main function to run the job service
+def main():
+    client = WeaviateClient().get_client()
+
+    job_service = JobService(client)
+    
+    # Create JobPosting collection if it doesn't exist
+    job_service.create_job_posting_collection()
+
+    # Load the dataset
+    df = pd.read_csv('./data/postings.csv')
+    df = df[0:10]
+
+    # Preprocess the dataframe (assuming preprocessing code is already executed and df is cleaned)
+    job_service.populate_job_posting_collection(df)
+
+
+if __name__ == "__main__":
+    main()
