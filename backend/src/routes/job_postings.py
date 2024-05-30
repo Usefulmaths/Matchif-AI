@@ -52,8 +52,14 @@ def get_job_postings(
         {
             "title": obj.properties.get("title", "N/A"),
             "company": obj.properties.get("company_name", "N/A"),
-            "skills": obj.properties.get("skills", "N/A"),
+            "location": obj.properties.get("location", "N/A"),
+            "min_salary": obj.properties.get("min_salary", 0.0),
+            "max_salary": obj.properties.get("max_salary", 0.0),
+            "currency": obj.properties.get("currency", "N/A"),
+            "work_type": obj.properties.get("formatted_work_type", "N/A"),
+            "experience_level": obj.properties.get("formatted_experience_level", "N/A"),
             "description": obj.generated,
+            
         }
         for obj in job_postings
     ]

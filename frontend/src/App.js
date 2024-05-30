@@ -15,6 +15,7 @@ const App = () => {
     fileName,
     uploadProgress,
     handleDrop,
+    resetJobDescriptions,
   } = useFileUpload();
 
   const renderUploadSection = () => (
@@ -30,7 +31,10 @@ const App = () => {
   );
 
   const renderCarouselSection = () => (
-    <CarouselContainer isVisible={jobDescriptions.length > 0}>
+    <CarouselContainer
+      isVisible={jobDescriptions.length > 0}
+      onClose={resetJobDescriptions}
+    >
       <JobCarousel jobDescriptions={jobDescriptions} />
     </CarouselContainer>
   );

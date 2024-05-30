@@ -91,5 +91,6 @@ Once the Docker containers are up and running, you can access the web applicatio
 
 ## Potential Next Steps
 - Integrate live scraping of job descriptions instead of using a static dataset.
+- Enable filtering options for location, experience type, etc.
 - Implement a more complex vector search that can take into account users' preferences in skills, industries, etc.
 - Enhance the user interface to provide a more interactive and intuitive experience.

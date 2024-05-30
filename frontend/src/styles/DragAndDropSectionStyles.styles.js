@@ -22,12 +22,11 @@ export const DropzoneContainer = styled.div`
   width: 50%;
   min-width: 150px;
   max-width: 300px;
-  min-width: 150px;
   max-height: 300px;
   aspect-ratio: 1 / 1;
 
   &:hover {
-    border-color: #6a0dad;
+    border-color: #130c49;
   }
 `;
 
@@ -61,4 +60,7 @@ export const Message = styled.p`
 
 export const Spinner = styled(CircularProgress)`
   margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;

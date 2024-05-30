@@ -4,14 +4,14 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import { Navigation } from 'swiper/modules';
 import JobCard from './JobCard.js';
+import { StyledSwiper } from '../styles/JobCarousel.styles.js';
 
 const JobCarousel = ({ jobDescriptions }) => {
   return (
-    <Swiper
+    <StyledSwiper
       navigation={true}
       modules={[Navigation]}
       spaceBetween={20}
-      style={{ height: '100%', width: '100%' }}
     >
       {jobDescriptions.map((job, index) => (
         <SwiperSlide
@@ -28,10 +28,16 @@ const JobCarousel = ({ jobDescriptions }) => {
             company={job.company}
             title={job.title}
             description={job.description}
+            location={job.location}
+            min_salary={job.min_salary}
+            max_salary={job.max_salary}
+            currency={job.currency}
+            work_type={job.work_type}
+            experience_level={job.experience_level}
           />
         </SwiperSlide>
       ))}
-    </Swiper>
+    </StyledSwiper>
   );
 };
 

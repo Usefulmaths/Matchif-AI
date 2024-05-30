@@ -7,6 +7,13 @@ const useFileUpload = () => {
   const [fileName, setFileName] = useState('');
   const [uploadProgress, setUploadProgress] = useState(0);
 
+  const resetJobDescriptions = () => {
+    setJobDescriptions([]);
+    setUploadStatus('idle');
+    setFileName('');
+    setUploadProgress(0);
+  };
+
   const handleDrop = useCallback((acceptedFiles) => {
     const file = acceptedFiles[0];
     setFileName(file.name);
@@ -43,6 +50,7 @@ const useFileUpload = () => {
     fileName,
     uploadProgress,
     handleDrop,
+    resetJobDescriptions
   };
 };
 
