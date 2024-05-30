@@ -27,7 +27,7 @@ class UserService:
                 "description": user_description
             }
             collection = self.client.collections.get("UserProfile")
-            result = collection.data.insert_many([user_object])
+            result = collection.data.insert(user_object)
             return result.uuids[0]
 
         except Exception as e:

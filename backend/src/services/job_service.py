@@ -27,6 +27,10 @@ class JobService:
         Returns:
             list: A list of job posting objects.
         """
+
+        if limit == 0:
+            return []
+        
         try:
             job_postings = self.client.collections.get("JobPosting")
             response = job_postings.generate.near_vector(
