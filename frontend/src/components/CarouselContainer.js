@@ -38,7 +38,6 @@ const CloseButton = styled(FaTimes)`
   }
 `;
 
-
 const CarouselContainer = ({ isVisible, onClose, children }) => {
   useEffect(() => {
     const handleKeyDown = (event) => {
@@ -58,8 +57,8 @@ const CarouselContainer = ({ isVisible, onClose, children }) => {
 
   return (
     <CarouselWrapper isVisible={isVisible}>
-        <CloseButton onClick={onClose} />
-        {children}
+      <CloseButton onClick={onClose} />
+      {children}
     </CarouselWrapper>
   );
 };

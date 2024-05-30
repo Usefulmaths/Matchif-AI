@@ -94,7 +94,9 @@ const JobCard = ({
         />
       </div>
       <ApplyButtonContainer>
-        <ApplyButton onClick={() => window.open(application_url)}>Apply Now</ApplyButton>
+        <ApplyButton onClick={() => window.open(application_url)}>
+          Apply Now
+        </ApplyButton>
       </ApplyButtonContainer>
     </StyledJobCard>
   );
