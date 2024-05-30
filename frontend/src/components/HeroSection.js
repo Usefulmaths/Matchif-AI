@@ -1,12 +1,12 @@
-import React from "react";
-import Wavify from "react-wavify";
-import Circle from "./Circle";
+import React from 'react';
+import Wavify from 'react-wavify';
+import Circle from './Circle';
 import {
   HeroContainer,
   Title,
   SubTitle,
   WaveDivider,
-} from "../styles/HeroSectionStyles.styles";
+} from '../styles/HeroSectionStyles.styles';
 
 const HeroSection = () => (
   <HeroContainer>

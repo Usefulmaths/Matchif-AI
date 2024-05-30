@@ -1,14 +1,14 @@
-import React from "react";
+import React from 'react';
 import {
   StyledJobCard,
   CompanyName,
   JobTitle,
   JobDescription,
-} from "../styles/JobCard.styles";
+} from '../styles/JobCard.styles';
 
-const JobCard = ({ company, title, description}) => {
+const JobCard = ({ company, title, description }) => {
   const formatDescription = (description) => {
-    return description.replace(/\n/g, "<br />");
+    return description.replace(/\n/g, '<br />');
   };
 
   return (
@@ -23,6 +23,5 @@ const JobCard = ({ company, title, description}) => {
     </StyledJobCard>
   );
 };
-
 
 export default JobCard;

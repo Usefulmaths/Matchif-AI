@@ -1,6 +1,6 @@
-import styled from "styled-components";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import CircularProgress from "@material-ui/core/CircularProgress";
+import styled from 'styled-components';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 export const DropzoneContainer = styled.div`
   z-index: 3;
@@ -33,7 +33,7 @@ export const DropzoneContainer = styled.div`
 
 export const Icon = styled(FontAwesomeIcon)`
   font-size: 3rem;
-  color: ${({ color }) => color || "#68bc74"};
+  color: ${({ color }) => color || '#68bc74'};
   margin-bottom: 20px;
 
   @media (min-width: 768px) {
@@ -47,7 +47,7 @@ export const Icon = styled(FontAwesomeIcon)`
 
 export const Message = styled.p`
   font-size: 1rem;
-  color: ${({ color }) => color || "#555"};
+  color: ${({ color }) => color || '#555'};
   margin: 10px 0;
 
   @media (min-width: 768px) {

@@ -1,6 +1,5 @@
-
-import styled from "styled-components";
-import {fadeIn} from "./animations"; 
+import styled from 'styled-components';
+import { fadeIn } from './animations';
 
 const AppContainer = styled.div`
   display: flex;

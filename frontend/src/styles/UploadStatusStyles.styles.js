@@ -1,4 +1,4 @@
-import styled, { keyframes } from "styled-components";
+import styled, { keyframes } from 'styled-components';
 
 export const UploadStatusContainer = styled.div`
   position: fixed;
@@ -27,8 +27,8 @@ export const UploadStatusContainer = styled.div`
 
 export const Message = styled.p`
   font-size: 1.25rem;
-  font-family: "Inter", sans-serif;
-  color: ${({ color }) => color || "#555"};
+  font-family: 'Inter', sans-serif;
+  color: ${({ color }) => color || '#555'};
   margin: 0.5rem 0;
 
   @media (min-width: 768px) {
@@ -67,6 +67,6 @@ export const messages = {
       <Dot delay="0.4s">.</Dot>
     </span>
   ),
-  success: "Success! Your dream job awaits!",
-  error: "Oops! Something went wrong. Try again!",
+  success: 'Success! Your dream job awaits!',
+  error: 'Oops! Something went wrong. Try again!',
 };

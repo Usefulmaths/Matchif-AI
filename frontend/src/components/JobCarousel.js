@@ -1,28 +1,27 @@
-import React from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-import "swiper/css/navigation";
-import { Navigation } from "swiper/modules";
-import JobCard from "./JobCard.js";
+import React from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import { Navigation } from 'swiper/modules';
+import JobCard from './JobCard.js';
 
 const JobCarousel = ({ jobDescriptions }) => {
-
   return (
     <Swiper
       navigation={true}
       modules={[Navigation]}
       spaceBetween={20}
-      style={{ height: "100%", width: "100%" }}
+      style={{ height: '100%', width: '100%' }}
     >
       {jobDescriptions.map((job, index) => (
         <SwiperSlide
           key={index}
           style={{
-            height: "100%",
-            width: "100%",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
+            height: '100%',
+            width: '100%',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
           }}
         >
           <JobCard

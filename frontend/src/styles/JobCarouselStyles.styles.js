@@ -1,4 +1,4 @@
-import styled, { keyframes } from "styled-components";
+import styled, { keyframes } from 'styled-components';
 
 export const fadeIn = keyframes`
   from {
@@ -26,7 +26,9 @@ export const JobCard = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 
   &:hover {
     transform: translateY(-10px);

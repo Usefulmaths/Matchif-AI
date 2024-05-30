@@ -1,9 +1,9 @@
-import React from "react";
+import React from 'react';
 import {
   UploadStatusContainer,
   Message,
   messages,
-} from "../styles/UploadStatusStyles.styles";
+} from '../styles/UploadStatusStyles.styles';
 
 const UploadStatus = ({ uploadStatus }) => (
   <UploadStatusContainer>

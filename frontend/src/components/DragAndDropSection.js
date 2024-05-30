@@ -1,16 +1,16 @@
-import React from "react";
-import { useDropzone } from "react-dropzone";
+import React from 'react';
+import { useDropzone } from 'react-dropzone';
 import {
   faFileUpload,
   faCheckCircle,
   faTimesCircle,
-} from "@fortawesome/free-solid-svg-icons";
+} from '@fortawesome/free-solid-svg-icons';
 import {
   DropzoneContainer,
   Icon,
   Message,
   Spinner,
-} from "../styles/DragAndDropSectionStyles.styles";
+} from '../styles/DragAndDropSectionStyles.styles';
 
 const DragAndDropSection = ({
   onDrop,
@@ -20,21 +20,21 @@ const DragAndDropSection = ({
 }) => {
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
     onDrop: onDrop,
-    accept: "application/pdf",
+    accept: 'application/pdf',
   });
 
   const renderContent = () => {
     switch (uploadStatus) {
-      case "uploading":
+      case 'uploading':
         return <Spinner />;
-      case "success":
+      case 'success':
         return (
           <>
             <Icon icon={faCheckCircle} color="green" />
             <Message color="green">{fileName} uploaded successfully!</Message>
           </>
         );
-      case "error":
+      case 'error':
         return (
           <>
             <Icon icon={faTimesCircle} color="red" />
@@ -46,7 +46,7 @@ const DragAndDropSection = ({
           <>
             <Icon icon={faFileUpload} />
             <Message>
-              {isDragActive ? "Drop the file here..." : "Upload Your Resume"}
+              {isDragActive ? 'Drop the file here...' : 'Upload Your Resume'}
             </Message>
           </>
         );

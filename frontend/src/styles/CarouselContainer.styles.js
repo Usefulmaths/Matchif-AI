@@ -1,8 +1,8 @@
-import styled from "styled-components";
-import { fadeIn } from "./animations";
+import styled from 'styled-components';
+import { fadeIn } from './animations';
 
 export const CarouselWrapper = styled.div`
-  display: ${({ isVisible }) => (isVisible ? "flex" : "none")};
+  display: ${({ isVisible }) => (isVisible ? 'flex' : 'none')};
   align-items: center;
   justify-content: center;
   position: absolute;

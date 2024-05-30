@@ -1,12 +1,12 @@
-import React from "react";
-import GlobalStyle from "./styles/GlobalStyle.styles";
-import HeroSection from "./components/HeroSection";
-import CarouselContainer from "./components/CarouselContainer";
-import DragAndDropSection from "./components/DragAndDropSection";
-import JobCarousel from "./components/JobCarousel";
-import useFileUpload from "./hooks/useFileUpload";
-import UploadStatus from "./components/UploadStatus";
-import AppContainer from "./styles/App.styles";
+import React from 'react';
+import GlobalStyle from './styles/GlobalStyle.styles';
+import HeroSection from './components/HeroSection';
+import CarouselContainer from './components/CarouselContainer';
+import DragAndDropSection from './components/DragAndDropSection';
+import JobCarousel from './components/JobCarousel';
+import useFileUpload from './hooks/useFileUpload';
+import UploadStatus from './components/UploadStatus';
+import AppContainer from './styles/App.styles';
 
 const App = () => {
   const {
@@ -25,7 +25,7 @@ const App = () => {
         fileName={fileName}
         uploadProgress={uploadProgress}
       />
-      {uploadStatus !== "idle" && <UploadStatus uploadStatus={uploadStatus} />}
+      {uploadStatus !== 'idle' && <UploadStatus uploadStatus={uploadStatus} />}
     </>
   );
 
