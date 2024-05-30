@@ -58,6 +58,12 @@ export const Message = styled.p`
   }
 `;
 
+export const SubMessage = styled.p`
+  font-size: 0.875rem;
+  color: #888;
+  margin: 5px 0;
+`;
+
 export const Spinner = styled(CircularProgress)`
   margin-top: 20px;
   display: flex;

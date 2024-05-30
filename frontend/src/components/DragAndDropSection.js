@@ -9,6 +9,7 @@ import {
   DropzoneContainer,
   Icon,
   Message,
+  SubMessage,
   Spinner,
 } from '../styles/DragAndDropSectionStyles.styles';
 
@@ -48,6 +49,7 @@ const DragAndDropSection = ({
             <Message>
               {isDragActive ? 'Drop the file here...' : 'Upload Your Resume'}
             </Message>
+            <SubMessage>Only PDF files are accepted</SubMessage>
           </>
         );
     }
