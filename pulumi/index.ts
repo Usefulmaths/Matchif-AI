@@ -81,22 +81,10 @@ const cloudRunService = new gcp.cloudrun.Service(
 );
 
 // Grant public access to the Cloud Run service
-const publicAccess = new gcp.cloudrun.IamMember("matchifAiPublicAccess", {
+new gcp.cloudrun.IamMember("matchifAiPublicAccess", {
   location: cloudRunService.location,
   project: cloudRunService.project,
   service: cloudRunService.name,
   role: "roles/run.invoker",
   member: "allUsers",
 });
-
-// Optional IAM member if needed for internal access (can be removed if not required)
-const cloudRunServiceIam = new gcp.cloudrun.IamMember(
-  "matchifAiCloudRunServiceIam",
-  {
-    location: cloudRunService.location,
-    project: cloudRunService.project,
-    service: cloudRunService.name,
-    role: "roles/run.invoker",
-    member: pulumi.interpolate`serviceAccount:${serviceAccount.email}`,
-  }
-);
