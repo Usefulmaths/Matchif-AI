@@ -1,11 +1,11 @@
-import pandas as pd 
+import pandas as pd
 
 from src.preprocessor.preprocessor import PreprocessorBuilder, PreprocessorDirector
 from src.services.job_service import JobService
 from src.clients.weaviate_client import WeaviateClient
 
 if __name__ == "__main__":
-    # Create client and job service to interact with Weaviate 
+    # Create client and job service to interact with Weaviate
     client = WeaviateClient().get_client()
     job_service = JobService(client)
 
@@ -15,16 +15,26 @@ if __name__ == "__main__":
 
     # Create JobPosting collection if it doesn't exist
     job_service.create_job_posting_collection()
-    
-     # Load the dataset
-    df = pd.read_csv('./data/postings.csv')
+
+    # Load the dataset
+    df = pd.read_csv("./data/postings.csv")
 
     # Select relevant columns
     selected_columns = [
-        'title', 'company_name', 'description', 'location',
-        'max_salary', 'min_salary', 'currency', 'pay_period', 'compensation_type',
-        'formatted_work_type', 'remote_allowed',
-        'application_url', 'application_type', 'formatted_experience_level'
+        "title",
+        "company_name",
+        "description",
+        "location",
+        "max_salary",
+        "min_salary",
+        "currency",
+        "pay_period",
+        "compensation_type",
+        "formatted_work_type",
+        "remote_allowed",
+        "application_url",
+        "application_type",
+        "formatted_experience_level",
     ]
 
     # Create a subset dataframe with the selected columns

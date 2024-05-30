@@ -10,7 +10,10 @@ import weaviate.classes as wvc
 from src.clients.weaviate_client import WeaviateClient
 
 # Configure logging
-logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+logging.basicConfig(
+    level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s"
+)
+
 
 class JobService:
     """
@@ -32,10 +35,10 @@ class JobService:
         """
         try:
             self.client.collections.create(
-                name='JobPosting',
-                vectorizer_config=wvc.config.Configure.Vectorizer.text2vec_openai(), 
-                generative_config=wvc.config.Configure.Generative.openai(), 
-                properties = [
+                name="JobPosting",
+                vectorizer_config=wvc.config.Configure.Vectorizer.text2vec_openai(),
+                generative_config=wvc.config.Configure.Generative.openai(),
+                properties=[
                     wvc.config.Property(
                         name="location",
                         data_type=wvc.config.DataType.TEXT,
@@ -43,27 +46,23 @@ class JobService:
                     wvc.config.Property(
                         name="formatted_work_type",
                         data_type=wvc.config.DataType.TEXT,
-                        skip=True
+                        skip=True,
                     ),
                     wvc.config.Property(
-                        name="pay_period",
-                        data_type=wvc.config.DataType.TEXT,
-                        skip=True
+                        name="pay_period", data_type=wvc.config.DataType.TEXT, skip=True
                     ),
                     wvc.config.Property(
                         name="remote_allowed",
                         data_type=wvc.config.DataType.NUMBER,
-                        skip=True
+                        skip=True,
                     ),
                     wvc.config.Property(
                         name="application_url",
                         data_type=wvc.config.DataType.TEXT,
-                        skip=True
+                        skip=True,
                     ),
                     wvc.config.Property(
-                        name="currency",
-                        data_type=wvc.config.DataType.TEXT,
-                        skip=True
+                        name="currency", data_type=wvc.config.DataType.TEXT, skip=True
                     ),
                     wvc.config.Property(
                         name="formatted_experience_level",
@@ -76,7 +75,7 @@ class JobService:
                     wvc.config.Property(
                         name="application_type",
                         data_type=wvc.config.DataType.TEXT,
-                        skip=True
+                        skip=True,
                     ),
                     wvc.config.Property(
                         name="title",
@@ -85,7 +84,7 @@ class JobService:
                     wvc.config.Property(
                         name="max_salary",
                         data_type=wvc.config.DataType.NUMBER,
-                        skip=True
+                        skip=True,
                     ),
                     wvc.config.Property(
                         name="min_salary",
@@ -94,19 +93,20 @@ class JobService:
                     wvc.config.Property(
                         name="compensation_type",
                         data_type=wvc.config.DataType.TEXT,
-                        skip=True
+                        skip=True,
                     ),
                     wvc.config.Property(
                         name="company_name",
                         data_type=wvc.config.DataType.TEXT,
-                        skip=True
+                        skip=True,
                     ),
-                ]
-
+                ],
             )
             logging.info("Created JobPosting collection.")
         except UnexpectedStatusCodeException:
-            logging.error("JobPosting collection already exists. Please remove it before creating a new one.")
+            logging.error(
+                "JobPosting collection already exists. Please remove it before creating a new one."
+            )
             raise
         except Exception as e:
             logging.error(f"Error creating JobPosting collection: {e}")
@@ -119,7 +119,7 @@ class JobService:
         Args:
             df (pd.DataFrame): DataFrame containing job postings data.
         """
-        job_listing_objs = df.to_dict(orient='records')
+        job_listing_objs = df.to_dict(orient="records")
 
         try:
             job_postings = self.client.collections.get("JobPosting")

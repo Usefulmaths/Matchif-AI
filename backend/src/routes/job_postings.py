@@ -60,7 +60,6 @@ def get_job_postings(
             "experience_level": obj.properties.get("formatted_experience_level", "N/A"),
             "application_url": obj.properties.get("application_url", "N/A"),
             "description": obj.generated,
-            
         }
         for obj in job_postings
     ]

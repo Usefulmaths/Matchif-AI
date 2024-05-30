@@ -1,5 +1,6 @@
 import weaviate.classes as wvc
 
+
 class UserService:
     """
     Service class to handle user profile related operations.
@@ -14,7 +15,7 @@ class UserService:
         """
         self.client = client
 
-        # Create the UserProfile collection if it doesn't exist 
+        # Create the UserProfile collection if it doesn't exist
         self.create_user_profile_collection()
 
     def check_user_profile_collection_exists(self):
@@ -32,15 +33,15 @@ class UserService:
         """
         if not self.check_user_profile_collection_exists():
             self.client.collections.create(
-                name='UserProfile',
-                vectorizer_config=wvc.config.Configure.Vectorizer.text2vec_openai(), 
+                name="UserProfile",
+                vectorizer_config=wvc.config.Configure.Vectorizer.text2vec_openai(),
                 generative_config=wvc.config.Configure.Generative.openai(),
                 properties=[
                     wvc.config.Property(
                         name="description",
                         data_type=wvc.config.DataType.TEXT,
                     )
-                ]
+                ],
             )
 
     def add_user_profile(self, user_description: str):
@@ -54,7 +55,6 @@ class UserService:
             str: UUID of the newly created user profile.
         """
         try:
-
             user_object = {"description": user_description}
             collection = self.client.collections.get("UserProfile")
             uuid = collection.data.insert(user_object)
