@@ -1,34 +1,30 @@
 # Matchif-AI
 
 ## Overview
-Matchif-AI is a web application designed to assist users in finding job descriptions that closely match their resumes. The application allows users to upload their resume in PDF format, which is then processed and embedded into vector representations. These resume vectors are compared against a pre-existing vector database of job descriptions to find the best matches.
+Matchif-AI is a web application designed to assist users in finding job descriptions that closely match their resumes. Users can upload their resume in PDF format, which is processed and embedded into vector representations. These resume vectors are compared against a pre-existing vector database of job descriptions to find the best matches.
 
-Note: This is a demo / proof-of-concept; the job descriptions are out-of-date. So, if you apply and don’t hear back, it’s not you—it’s them ;P
-
-## Demo
-
+## Matchif-AI in Action
 ![Matchif-AI Demo](./Matchif-AI%20Demo.gif)
+Note: This is a demo / proof-of-concept; the job descriptions are out-of-date. So, if you apply and don’t hear back, it’s not you—it’s them ;P
 
 ## Deployed Application
 If you prefer not to run the application locally, you can access the deployed version on Google Cloud Run:
-
 [Matchif-AI - Live Demo](https://matchif-ai-cloudrun-service-bf8a668-xkrlu6mwma-uc.a.run.app)
-
 The infrastructure for this deployment is managed using Infrastructure as Code (IaC) with Pulumi.
 
 ## Workflow
 ### Preliminary Exploratory Data Analysis
-Initial exploratory data analysis of the job listing dataset can be found in `backend/notebook`, which gives insight into the structure and contents of the data. The dataset can be found here [LinkedIn Job Postings Dataset](https://www.kaggle.com/datasets/arshkon/linkedin-job-postings) 
+Initial exploratory data analysis of the job listing dataset can be found in `backend/notebook`, which provides insight into the structure and contents of the data. The dataset can be found here: [LinkedIn Job Postings Dataset](https://www.kaggle.com/datasets/arshkon/linkedin-job-postings).
 
 ### Data Preprocessing
 1. Preprocess the job listing data to:
-   - Removes unnecessary columns.
-   - Handles missing data via removal or imputation.
-   - Removes duplicates.
-   - Removes HTML tags in descriptions.
-   - Normalises spacing and newlines in description.
+   - Remove unnecessary columns.
+   - Handle missing data via removal or imputation.
+   - Remove duplicates.
+   - Remove HTML tags in descriptions.
+   - Normalise spacing and newlines in descriptions.
 2. Create a `JobPosting` collection on Weaviate to store embedding vectors of the job descriptions.
-3. Vectorise the data and store in the `JobPosting` collection using Weaviate. These will be used for generative search later.
+3. Vectorise the data and store it in the `JobPosting` collection using Weaviate. These will be used for generative search later.
 
 ### Application Deployment
 Once the Weaviate `JobPosting` collection is populated, the application is ready to be served.
