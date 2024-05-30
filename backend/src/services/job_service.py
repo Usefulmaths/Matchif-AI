@@ -34,7 +34,75 @@ class JobService:
             self.client.collections.create(
                 name='JobPosting',
                 vectorizer_config=wvc.config.Configure.Vectorizer.text2vec_openai(), 
-                generative_config=wvc.config.Configure.Generative.openai() 
+                generative_config=wvc.config.Configure.Generative.openai(), 
+                properties = [
+                    wvc.config.Property(
+                        name="location",
+                        data_type=wvc.config.DataType.TEXT,
+                    ),
+                    wvc.config.Property(
+                        name="formatted_work_type",
+                        data_type=wvc.config.DataType.TEXT,
+                        skip=True
+                    ),
+                    wvc.config.Property(
+                        name="pay_period",
+                        data_type=wvc.config.DataType.TEXT,
+                        skip=True
+                    ),
+                    wvc.config.Property(
+                        name="remote_allowed",
+                        data_type=wvc.config.DataType.NUMBER,
+                        skip=True
+                    ),
+                    wvc.config.Property(
+                        name="application_url",
+                        data_type=wvc.config.DataType.TEXT,
+                        skip=True
+                    ),
+                    wvc.config.Property(
+                        name="currency",
+                        data_type=wvc.config.DataType.TEXT,
+                        skip=True
+                    ),
+                    wvc.config.Property(
+                        name="formatted_experience_level",
+                        data_type=wvc.config.DataType.TEXT,
+                    ),
+                    wvc.config.Property(
+                        name="description",
+                        data_type=wvc.config.DataType.TEXT,
+                    ),
+                    wvc.config.Property(
+                        name="application_type",
+                        data_type=wvc.config.DataType.TEXT,
+                        skip=True
+                    ),
+                    wvc.config.Property(
+                        name="title",
+                        data_type=wvc.config.DataType.TEXT,
+                    ),
+                    wvc.config.Property(
+                        name="max_salary",
+                        data_type=wvc.config.DataType.NUMBER,
+                        skip=True
+                    ),
+                    wvc.config.Property(
+                        name="min_salary",
+                        data_type=wvc.config.DataType.NUMBER,
+                    ),
+                    wvc.config.Property(
+                        name="compensation_type",
+                        data_type=wvc.config.DataType.TEXT,
+                        skip=True
+                    ),
+                    wvc.config.Property(
+                        name="company_name",
+                        data_type=wvc.config.DataType.TEXT,
+                        skip=True
+                    ),
+                ]
+
             )
             logging.info("Created JobPosting collection.")
         except UnexpectedStatusCodeException:
