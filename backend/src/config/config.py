@@ -1,6 +1,7 @@
 import os
 from dotenv import load_dotenv
 
+
 class Config:
     """
     Singleton class to manage configuration settings from environment variables.
@@ -25,11 +26,13 @@ class Config:
         Validates that all required environment variables are set.
         """
         load_dotenv()  # Load environment variables here
-        
-        self.wcs_url = os.getenv('WCS_URL')
-        self.wcs_api_key = os.getenv('WCS_API_KEY')
-        self.openai_api_key = os.getenv('OPENAI_APIKEY')
-        self.cors_origins = os.getenv("CORS_ORIGINS", "http://localhost:3000").split(",")
+
+        self.wcs_url = os.getenv("WCS_URL")
+        self.wcs_api_key = os.getenv("WCS_API_KEY")
+        self.openai_api_key = os.getenv("OPENAI_APIKEY")
+        self.cors_origins = os.getenv("CORS_ORIGINS", "http://localhost:3000").split(
+            ","
+        )
 
         self.validate_config()
 

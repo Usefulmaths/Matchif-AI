@@ -2,6 +2,7 @@ import weaviate
 from weaviate.auth import AuthApiKey
 from src.config.config import Config
 
+
 class WeaviateClient:
     """
     Singleton client class for interacting with Weaviate.
@@ -27,15 +28,13 @@ class WeaviateClient:
         self.client = weaviate.connect_to_wcs(
             cluster_url=config.get_wcs_url(),
             auth_credentials=AuthApiKey(api_key=config.get_wcs_api_key()),
-            headers={
-                "X-OpenAI-Api-Key": config.get_openai_api_key()
-            }
+            headers={"X-OpenAI-Api-Key": config.get_openai_api_key()},
         )
 
     def get_client(self):
         """
         Returns the Weaviate client instance.
-        
+
         Returns:
             weaviate.Client: The Weaviate client instance.
         """

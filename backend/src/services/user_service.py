@@ -6,7 +6,7 @@ class UserService:
     def __init__(self, client):
         """
         Initializes the UserService with a Weaviate client.
-        
+
         Args:
             client: An instance of a Weaviate client.
         """
@@ -23,9 +23,7 @@ class UserService:
             str: UUID of the newly created user profile.
         """
         try:
-            user_object = {
-                "description": user_description
-            }
+            user_object = {"description": user_description}
             collection = self.client.collections.get("UserProfile")
             result = collection.data.insert(user_object)
             return result.uuids[0]

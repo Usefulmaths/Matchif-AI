@@ -1,6 +1,6 @@
-
 from weaviate.classes.query import MetadataQuery
 from typing import List
+
 
 class JobService:
     """
@@ -10,7 +10,7 @@ class JobService:
     def __init__(self, client):
         """
         Initializes the JobService with a Weaviate client.
-        
+
         Args:
             client: An instance of a Weaviate client.
         """
@@ -30,7 +30,7 @@ class JobService:
 
         if limit == 0:
             return []
-        
+
         try:
             job_postings = self.client.collections.get("JobPosting")
             response = job_postings.generate.near_vector(
@@ -59,7 +59,7 @@ class JobService:
                 <b>Qualification</b>:
                 - <required qualification e.g. degree>
                 """,
-                return_metadata=MetadataQuery(distance=True)
+                return_metadata=MetadataQuery(distance=True),
             )
             return response.objects
 
